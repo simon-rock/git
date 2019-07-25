@@ -2094,6 +2094,7 @@ static int use_patch(struct apply_state *state, struct patch *p)
 	if (state->prefix && *state->prefix) {
 		const char *rest;
 		if (!skip_prefix(pathname, state->prefix, &rest) || !*rest)
+            error(_("%s doesn't contain the prefix(%s)"), pathname, state->prefix);
 			return 0;
 	}
 
